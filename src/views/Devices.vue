@@ -1,35 +1,101 @@
 <template lang='pug'>
 
-#map-container
-    span abcd
-    #map
+#container
+    #devices-container
+        .device-card(v-for='site, sitename in $store.state.sites')
+            .card-header
+                div.sitename {{ sitename }}
+                img.sleeve-image(src="@/assets/Muffe_klein.svg", width='200px')
+            .card-info
+                table
+                    tr
+                        td.data-name PD Value
+                        td.data-value {{ Math.round(site.pd_value*10)/10 }} pC 
+                        td.data-valuebar-container
+                            div.data-valuebar(:style="{'width':site.pd_value*10}")
+                    tr
+                        td.data-name Temperature
+                        td.data-value {{ Math.round(site.temperature*10)/10 }} °C
+                        td.data-valuebar-container
+                            div.data-valuebar(:style="{'width':site.temperature}")
 
 </template>
 
 <script>
 
-import LeafletCSS from 'leaflet/dist/leaflet.css';
-import Leaflet from 'leaflet'
-
 export default {
-  name: 'Devices',
-  components: {
-  },
-  mounted() {
-    let map = Leaflet.map('map').setView([51.505, -0.09], 6);
-    Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
-  }
+    name: 'Devices',
+    components: {
+    },
+    mounted() {
+    }
 }
 </script>
 
 <style>
 
-#map-container {
-  width: 100%;
-}
-#map {
-    height: 100%;
+#container {
+    padding-top: 60px;
     width: 100%;
+    min-height: calc(100vh - 60px);
+    background-color: whitesmoke;
+}
+.device-card {
+    display: flex;
+    background-color: white;
+    margin: 10px;
+    margin-bottom: 5px;
+    box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.2);
+}
+
+.sleeve-image {
+    margin: 10px;
+}
+
+.card-info {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 20px;
+    /* background-color:yellowgreen; */
+}
+
+.card-header {
+    margin: 5px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sitename {
+    font-weight: bold;
+}
+
+td.data-name {
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: left;
+    padding-right: 20px;
+}
+
+td.data-value {
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 70px;
+    text-align: right;
+    background-color: whitesmoke;
+}
+.data-valuebar-container {
+    width: 100px;
+    /* background-color: green; */
+}
+
+.data-valuebar {
+    /* width: 100px; */
+    background-color: green;
 }
 
 </style>

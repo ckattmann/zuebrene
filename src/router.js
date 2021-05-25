@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Map from './views/Map.vue'
 import Devices from './views/Devices.vue'
+import Data from './views/Data.vue'
 
 Vue.use(Router);
 
@@ -21,6 +22,10 @@ let router = new Router({
         {
             path: '/devices',
             component: Devices
+        },
+        {
+            path: '/data',
+            component: Data
         }
     ]
 })

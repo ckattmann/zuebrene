@@ -1,0 +1,57 @@
+{
+    "site1": {
+        "latlon": [55.60212132308839, 12.476125412415145],
+        "type": "cablesleeve",
+        "max_current_A": 200
+    },
+    "site2": {
+        "latlon": [55.60528396933587, 12.473748635182682],
+        "type": "cablesleeve",
+        "max_current_A": 200
+    },
+    "site3": {
+        "latlon": [55.61117542439545, 12.475070314785464],
+        "type": "cablesleeve",
+        "max_current_A": 200
+    },
+    "site4": {
+        "latlon": [55.61380152017241, 12.475844672719882],
+        "type": "cablesleeve",
+        "max_current_A": 200
+    },
+    "site5": {
+        "latlon": [55.61564384462095, 12.480123420898483],
+        "type": "cablesleeve",
+        "max_current_A": 200
+    },
+    "site6": {
+        "latlon": [55.61458080080676, 12.496744151995802],
+        "type": "cablesleeve",
+        "max_current_A": 200
+    },
+    "site7": {
+        "latlon": [55.61426572195599, 12.514339443139399],
+        "type": "cablesleeve",
+        "max_current_a": 200
+    },
+    "site8": {
+        "latlon": [55.619652185010885, 12.524541076473275],
+        "type": "cablesleeve",
+        "max_current_a": 200
+    },
+    "site9": {
+        "latlon": [55.623544180718504, 12.5303150540929],
+        "type": "cablesleeve",
+        "max_current_a": 200
+    },
+    "site10": {
+        "latlon": [55.63201965096382, 12.542440406766321],
+        "type": "cablesleeve",
+        "max_current_a": 200
+    },
+    "site11": {
+        "latlon": [55.656671634817485, 12.556969742431281],
+        "type": "cablesleeve",
+        "max_current_a": 200
+    }
+}

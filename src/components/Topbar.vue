@@ -5,10 +5,11 @@ div#topbar
     div.topbar-side
         div#bsslogo
             img(src="../assets/bss-logo.svg")
-        div#title Monitoring Cloud
+        div#title Zübrene Monitoring
 
         router-link.topline-button(to="/map") Map
-        router-link.topline-button(to="/devices") Devices
+        router-link.topline-button(to="/devices") Sites
+        router-link.topline-button(to="/data") Data
         //- router-link.topline-button(v-if='this.$store.state.user.admin', to="/admindashboard") Admin
 
     //- div.topbar-side
@@ -51,8 +52,10 @@ $mobile-breakpoint: 720px
 #topbar
     height: 60px
     width: 100%
-    position: relative
-    // top: 0
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
     // max-width: 1400px
     background: linear-gradient(90deg, #086bc2, #2c9dd1)
     color: white
