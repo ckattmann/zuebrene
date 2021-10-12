@@ -1,7 +1,7 @@
 <template lang='pug'>
 
 #app
-    Topbar
+    Topbar(v-if='$store.state.login.username')
     router-view
 
 </template>
@@ -21,7 +21,10 @@ export default {
         }
     },
     mounted() {
-        setInterval(this.updateLiveData, 1000)
+        if (this.$store.state.login.username === '') {
+
+        }
+        // setInterval(this.updateLiveData, 1000)
     }
 }
 </script>

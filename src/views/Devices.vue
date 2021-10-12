@@ -4,20 +4,23 @@
     #devices-container
         .device-card(v-for='site, sitename in $store.state.sites')
             .card-header
-                div.sitename {{ sitename }}
+                div.sitename {{ site.name }}
                 img.sleeve-image(src="@/assets/Muffe_klein.svg", width='200px')
             .card-info
                 table
                     tr
-                        td.data-name PD Value
-                        td.data-value {{ Math.round(site.pd_value*10)/10 }} pC 
-                        td.data-valuebar-container
-                            div.data-valuebar(:style="{'width':site.pd_value*10}")
+                        td.data-name PD Value U
+                        td.data-value(:class="{alert : site.pd_value > 10}") {{ Math.round(site.pd_value*10)/10 }} pC 
+                        td.spacer
+                        td.data-name PD Value V
+                        td.data-value(:class="{alert : site.pd_value > 10}") {{ Math.round(site.pd_value*10)/10 }} pC 
+                        td.spacer
+                        td.data-name PD Value W
+                        td.data-value(:class="{alert : site.pd_value > 10}") {{ Math.round(site.pd_value*10)/10 }} pC 
                     tr
                         td.data-name Temperature
                         td.data-value {{ Math.round(site.temperature*10)/10 }} °C
-                        td.data-valuebar-container
-                            div.data-valuebar(:style="{'width':site.temperature}")
+                        td.spacer
 
 </template>
 
@@ -79,6 +82,7 @@ td.data-name {
     padding-bottom: 0;
     text-align: left;
     padding-right: 20px;
+    margin-left: 10px;
 }
 
 td.data-value {
@@ -87,6 +91,13 @@ td.data-value {
     width: 70px;
     text-align: right;
     background-color: whitesmoke;
+}
+td.data-value.alert {
+    color: red;
+    font-weight: bold;
+}
+td.spacer {
+    width: 10px;
 }
 .data-valuebar-container {
     width: 100px;

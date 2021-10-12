@@ -1,57 +1,80 @@
 {
     "site1": {
         "latlon": [55.60212132308839, 12.476125412415145],
-        "type": "cablesleeve",
+        "type": "cabletermination",
+        "name": "Amagervaerket",
         "max_current_A": 200
     },
     "site2": {
-        "latlon": [55.60528396933587, 12.473748635182682],
+        "latlon": [55.60810950386806, 12.492466074093302],
         "type": "cablesleeve",
+        "name": "01",
         "max_current_A": 200
     },
     "site3": {
-        "latlon": [55.61117542439545, 12.475070314785464],
+        "latlon": [55.610600632135075, 12.510407886356907],
         "type": "cablesleeve",
+        "name": "02",
         "max_current_A": 200
     },
     "site4": {
-        "latlon": [55.61380152017241, 12.475844672719882],
+        "latlon": [55.61973743826218, 12.520888452290828],
         "type": "cablesleeve",
+        "name": "03",
         "max_current_A": 200
     },
     "site5": {
-        "latlon": [55.61564384462095, 12.480123420898483],
+        "latlon": [55.626107220319945, 12.528836597367711],
         "type": "cablesleeve",
+        "name": "04",
         "max_current_A": 200
     },
     "site6": {
-        "latlon": [55.61458080080676, 12.496744151995802],
+        "latlon": [55.6321767365209, 12.537118113584034],
         "type": "cablesleeve",
+        "name": "05",
         "max_current_A": 200
     },
     "site7": {
-        "latlon": [55.61426572195599, 12.514339443139399],
+        "latlon": [55.63756278286718, 12.54724299876603],
         "type": "cablesleeve",
+        "name": "06",
         "max_current_a": 200
     },
     "site8": {
-        "latlon": [55.619652185010885, 12.524541076473275],
+        "latlon": [55.63752785500339, 12.55736835970972],
         "type": "cablesleeve",
+        "name": "07",
         "max_current_a": 200
     },
     "site9": {
-        "latlon": [55.623544180718504, 12.5303150540929],
+        "latlon": [55.64135956217053, 12.567948581875767],
         "type": "cablesleeve",
+        "name": "08",
         "max_current_a": 200
     },
     "site10": {
-        "latlon": [55.63201965096382, 12.542440406766321],
+        "latlon": [55.640764226962084, 12.580976758176154],
         "type": "cablesleeve",
+        "name": "09",
         "max_current_a": 200
     },
     "site11": {
-        "latlon": [55.656671634817485, 12.556969742431281],
+        "latlon": [55.64147298473837, 12.590713508767747],
         "type": "cablesleeve",
+        "name": "10",
+        "max_current_a": 200
+    },
+    "site12": {
+        "latlon": [55.64027872518103, 12.59904717700148],
+        "type": "cablesleeve",
+        "name": "11",
+        "max_current_a": 200
+    },
+    "site13": {
+        "latlon": [55.640693426331154, 12.608105185287185],
+        "type": "cabletermination",
+        "name": "Amager kbst",
         "max_current_a": 200
     }
 }

@@ -12,18 +12,18 @@ div#topbar
         router-link.topline-button(to="/data") Data
         //- router-link.topline-button(v-if='this.$store.state.user.admin', to="/admindashboard") Admin
 
-    //- div.topbar-side
-    //-     div#user
-    //-         div#usericon
-    //-             svg(width="34px" height="34px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000")
-    //-                 g(stroke="white")
-    //-                     circle(stroke="white", stroke-width="50px" fill="none", cx="500", cy="500", r='450')
-    //-                     circle(stroke="white", stroke-width="50px" fill="none", cx="500", cy="350", r='150')
-    //-                     path(stroke="white", stroke-width="50px", fill="none", d="M250,750 A250,250,0,0,1,750,750")
-    //-                     path(v-if='this.$store.state.user.admin', stroke="gold", stroke-width="10px", stroke-linejoin="round", fill="gold", d="M350,250 v-200 l50,100 l50,-100 l50,100 l50,-100 l50,100 l50,-100 v200 Z")
-    //-         span#username {{this.$store.state.user.username}}
-    //-         div#user-dropdown
-    //-             div#user-dropdown-item(@click="logout()") Logout
+    div.topbar-side
+        div#user
+            div#usericon
+                svg(width="34px" height="34px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000")
+                    g(stroke="white")
+                        circle(stroke="white", stroke-width="50px" fill="none", cx="500", cy="500", r='450')
+                        circle(stroke="white", stroke-width="50px" fill="none", cx="500", cy="350", r='150')
+                        path(stroke="white", stroke-width="50px", fill="none", d="M250,750 A250,250,0,0,1,750,750")
+                        //- path(v-if='this.$store.state.user.admin', stroke="gold", stroke-width="10px", stroke-linejoin="round", fill="gold", d="M350,250 v-200 l50,100 l50,-100 l50,100 l50,-100 l50,100 l50,-100 v200 Z")
+            span#username {{this.$store.state.login.username}}
+            //- div#user-dropdown
+            //-     div#user-dropdown-item(@click="logout()") Logout
 
 </template>
 
