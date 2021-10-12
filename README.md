@@ -1,33 +1,8 @@
-<<<<<<< HEAD
-# zuebrene
-=======
-# zuebrene
+# Zuebrene Monitoring UI
 
-## Project setup
+## Project Setup
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
+uvicorn ... login:app
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
->>>>>>> master
