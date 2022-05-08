@@ -1,10 +1,10 @@
 module.exports = {
     devServer: {
         host: "116.203.92.249",
-        port: 8081,
+        port: 8080,
         proxy: {
             '^/api': {
-                target: 'http://116.203.92.249:8000',
+                target: 'http://116.203.92.249:8081',
                 changeOrigin: true
             }
         }

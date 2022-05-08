@@ -9,11 +9,19 @@ export default new Vuex.Store({
         login: {
             username: ''
         },
-        sites: {}
+        sites: {},
+        livedata: {},
+        config: {}
     },
     mutations: {
         updateSites(state, sites) {
             state.sites = sites
+        },
+        updateLiveData(state, livedata) {
+            state.livedata = livedata
+        },
+        updateConfig(state, config) {
+            state.config = config
         }
     },
     actions: {
@@ -23,7 +31,6 @@ export default new Vuex.Store({
             oauth2FormData.append('password', payload.password)
             return axios.post('/api/token', oauth2FormData)
                 .then(response => {
-                    console.log(response.data)
                     let token = response.data.token
                     axios.defaults.headers.common = { 'Authorization': 'Bearer ' + token, 'Cache-Control': 'no-cache'}
                     axios.interceptors.response.use(response => { return response }, error => { if (error.response.status == 422 || error.response.status == 401) { return next('/login') } })
@@ -38,10 +45,21 @@ export default new Vuex.Store({
         //         state.commit('updateSites', response.data)
         //     })
         // },
+        async getConfig(state) {
+            const response = await fetch('api/config')
+            const config = await response.json()
+            state.commit('updateConfig', config)
+
+        },
         async getLiveData(state) {
-            const response = await axios.get("/api/livedata")
+                const response = await axios.get("/api/livedata")
             // console.log(response)
             state.commit('updateSites', response.data)
+        },
+        async getLiveData2(state) {
+                const response = await axios.get("/api/livedata2")
+            // console.log(response)
+            state.commit('updateLiveData', response.data)
         },
     }
 })

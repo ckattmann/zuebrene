@@ -1,9 +1,15 @@
+*.log
+*.pyc
+
+/data-server/.venv
 /api/.venv
+
 */__pycache__
 
 .DS_Store
 node_modules
 /dist
+/dist-backup
 
 
 # local env files

@@ -4,8 +4,8 @@
     #login-window
         div#bsslogo
             img#logo(src="../assets/bss-logo.svg")
-        input(placeholder='Username', v-model='username')
-        input(placeholder='Password', type='password', v-model='password')
+        input(placeholder='Username', v-model='username', v-on:keyup.enter="login2")
+        input(placeholder='Password', type='password', v-model='password', v-on:keyup.enter="login2")
         Button#loginbutton(@click='login2') Login
         div#error-text {{ error_text }}
 
@@ -22,8 +22,8 @@ export default {
     components: {},
     data: function() {
         return {
-            username: 'ckattmann',
-            password: 'hunter2',
+            username: '',
+            password: '',
             login_status: '',
             error_text: ''
         }
@@ -36,7 +36,7 @@ export default {
 				password: this.password
 			}).then(() => {
 				// this.$store.dispatch('getDevices');
-				this.$router.push('/map')
+				this.$router.push('/livedata')
 			}).catch(err => {
                 this.error_text = 'Login Failed'
 				console.log(err)

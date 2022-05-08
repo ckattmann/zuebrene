@@ -1,32 +1,64 @@
 <template lang='pug'>
 
-#plot-container
+#group-container
     #plot-header
         ButtonGroup.bgroup(:items='measurements', v-model='measurement')
-        ButtonGroup.bgroup(:items='field_keys', v-model='field_key')
+        //- ButtonGroup.bgroup(:items='field_keys', v-model='field_key')
         ButtonGroup.bgroup(:items='timeframes', v-model='timeframe')
         ButtonGroup.bgroup(:items='aggregations', v-model='aggregation')
     #plot
+        SinglePlot(
+            :measurementId='measurement.id',
+            :plotData="data",
+            :plotKeys="plot1keys",
+            plotyAxisName='Temperature'
+            unit='°C')
+        SinglePlot(
+            :measurementId='measurement.id',
+            :plotData="data",
+            :plotKeys="[{'key':'primary_current_A','label':'Current', 'unit':'A'}]",
+            plotyAxisName='Current',
+            unit='A'
+        )
+        SinglePlot(
+            :measurementId='measurement.id',
+            :plotData="data",
+            :plotKeys="[{'key':'sync_freq_Hz','label':'Sync Frequency', 'unit':'Hz'}]",
+            plotyAxisName='Sync Freq',
+            unit='Hz'
+        )
 
 </template>
 
 <script>
 
+    //- :plotKeys="[{'key':'temperature1_C','label':'Temperature2', 'unit':'°C'}, {'key':'temperature2_C','label':'Temperature', 'unit':'°C'}, {'key':'temperature3_C','label':'Temperature', 'unit':'°C'}, {'key':'temperature4_C','label':'Temperature', 'unit':'°C'}, {'key':'temperature5_C','label':'Temperature', 'unit':'°C'}, {'key':'temperature6_C','label':'Temperature', 'unit':'°C'}]",
+
 import axios from 'axios'
 import uPlot from 'uplot'
 import uPlotCSS from "uplot/dist/uPlot.min.css"
+
+import SinglePlot from './SinglePlot.vue'
 import ButtonGroup from './ButtonGroup.vue'
 
 export default {
     components: {
         ButtonGroup,
+        SinglePlot
     },
     props: {
-        // field_keys: Array
 
     },
     data() {
         return {
+            plot1keys: [ 
+                {'key': 'temperature1_C', 'unit':'°C', 'color':'red'},
+                {'key': 'temperature2_C', 'unit':'°C', 'color':'green'},
+                {'key': 'temperature3_C', 'unit':'°C', 'color':'blue'},
+                {'key': 'temperature4_C', 'unit':'°C', 'color':'black'},
+                {'key': 'temperature5_C', 'unit':'°C', 'color':'darkslategray'},
+                {'key': 'temperature6_C', 'unit':'°C', 'color':'orange'},
+            ],
             measurements: [
                 {'name':'Muffe 1', 'id':'client_0'},{'name':'Muffe 2', 'id':'client_1'}
             ],
@@ -51,50 +83,18 @@ export default {
             ],
             timeframe: {'name': 'Today', 'id': 'today'},
             aggregations: [
-                {'name': 'None', 'id': 'None'},
+                {'name': '10 Seconds', 'id': '10s'},
                 {'name': '1 Minute', 'id': '1m'},
                 {'name': '10 Minutes', 'id': '10m'},
             ],
-            aggregation: {'name': 'None', 'id': 'None'},
-            data : null,
-            plot: null,
-            uPlotOptions: {
-                id: "plot",
-				tzDate: ts => uPlot.tzDate(new Date(ts * 1e3), 'Europe/Berlin'),
-                series: [
-                    {
-                        value: (self, rawValue) => new Date(rawValue * 1e3),
-                    }, // Time
-                    {
-                        value: (self, rawValue) => Math.round(rawValue) + '°C',
-                        label: 'Temperature',
-                        stroke: 'red',
-                        scale: 'T',
-                        width: 1.5
-
-                    }
-                ],
-                scales: {
-                    'x': {
-                        time: true,
-                        key: 'Time'
-                        // values: (self, ticks) => ticks.map(rawValue => rawValue+' ms')
-                    },
-                    'T': {}
-                },
-                axes: [
-                    { show: true, label: "Time", labelFont: "14px Open Sans" },
-                    {
-                        scale: 'T',
-                        label: "Temperature / °C",
-                        labelFont: "14px Open Sans",
-                        size: 60,
-                        gap: 10, // between plot and ticks
-                        // values: (self, ticks) => ticks.map(rawValue => lib.formatValue(rawValue, 'V'))
-                    },
-                ]
-            }
+            aggregation: {'name': '10 Seconds', 'id': '10s'},
+            data : {},
         };
+    }, 
+    computed: {
+        config: function() {
+            return this.$store.state.config
+        }
     },
     methods: {
         getData() {
@@ -105,24 +105,8 @@ export default {
                     aggregation: this.aggregation.id
                 }}).then((response) => {
                     this.data = response.data;
-                    this.setData()
             })
-        },
-        setData() {
-            // let values = response.data.mean_primary_current_A
-            let values = this.data[this.field_key.id]
-            this.plot.setData([this.data.time, values])
-        },
-        initPlot() {
-            document.getElementById('plot').innerHTML = '';
-            const container = document.getElementById('plot');
-            this.uPlotOptions.width = container.scrollWidth-30;
-            this.uPlotOptions.height = 300;
-            let initialData = this.uPlotOptions.series.map(s => [0,1])
-            initialData.unshift([0]);
-            this.plot = new uPlot(this.uPlotOptions, initialData, document.getElementById('plot'));
-            // console.log(this.plot);
-        },
+        }
     },
     watch: {
         measurement: function(to, from) { this.getData() },
@@ -132,15 +116,13 @@ export default {
     },
     mounted() {
         this.getData();
-        this.initPlot();
-        // this.setData();
     }
 }
 </script>
 
 <style scoped>
 
-#plot-container {
+#group-container {
     margin-top: 10px;
     background-color: white;
     /* border: 1px solid black; */

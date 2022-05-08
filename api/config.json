@@ -1,0 +1,120 @@
+{
+    "client_0": {
+        "type": "joint",
+        "latlon": [0,0],
+        "name": "Joint Dummy-Loop",
+        "values": {
+            "temperature1_C": {
+                "enabled": true,
+                "name": "TP4-2",
+                "unit": "°C"
+            },
+            "temperature2_C": {
+                "enabled": true,
+                "name": "TP3-2",
+                "unit": "°C"
+            },
+            "temperature3_C": {
+                "enabled": true,
+                "name": "TP2",
+                "unit": "°C"
+            },
+            "temperature4_C": {
+                "enabled": true,
+                "name": "TP1",
+                "unit": "°C"
+            },
+            "temperature5_C": {
+                "enabled": true,
+                "name": "TP3-1",
+                "unit": "°C"
+            },
+            "temperature6_C": {
+                "enabled": true,
+                "name": "TP4-1",
+                "unit": "°C"
+            },
+            "primary_current_A": {
+                "enabled": true,
+                "name": "Primary Current",
+                "unit": "A"
+            },
+            "sync_freq_Hz": {
+                "enabled": true,
+                "name": "Sync Freq.",
+                "unit": "A"
+            },
+            "pd1_pC": {
+                "enabled": true,
+                "name": "PD1 (QIEC)",
+                "unit": "pC"
+            },
+            "pd2_pC": {
+                "enabled": false,
+                "name": "PD2 (QIEC)",
+                "unit": "pC"
+            }
+        }
+    },
+    "client_1": {
+        "type": "joint",
+        "latlon": [0,0],
+        "name": "Joint Main-Loop",
+        "values": {
+            "temperature1_C": {
+                "enabled": true,
+                "name": "Ambient",
+                "unit": "°C"
+            },
+            "temperature2_C": {
+                "enabled": true,
+                "name": "TP4-2",
+                "unit": "°C"
+            },
+            "temperature3_C": {
+                "enabled": true,
+                "name": "TP3-2",
+                "unit": "°C"
+            },
+            "temperature4_C": {
+                "enabled": true,
+                "name": "TP2",
+                "unit": "°C"
+            },
+            "temperature5_C": {
+                "enabled": true,
+                "name": "TP1",
+                "unit": "°C"
+            },
+            "temperature6_C": {
+                "enabled": true,
+                "name": "TP3-1",
+                "unit": "°C"
+            },
+            "primary_current_A": {
+                "enabled": true,
+                "name": "Primary Current",
+                "unit": "A"
+            },
+            "sync_freq_Hz": {
+                "enabled": true,
+                "name": "Sync Freq.",
+                "unit": "A"
+            },
+            "pd1_pC": {
+                "enabled": true,
+                "name": "PD1 (QIEC)",
+                "unit": "pC"
+            },
+            "pd2_pC": {
+                "enabled": false,
+                "name": "PD2 (QIEC)",
+                "unit": "pC"
+            }
+        }
+    }
+}
+
+
+
+

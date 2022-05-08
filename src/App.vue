@@ -8,23 +8,29 @@
 
 <script>
 import Topbar from './components/Topbar.vue'
+// import Livedata from './components/Livedata.vue'
 
 export default {
     name: 'App',
     components: {
-        Map,
+        // Livedata,
         Topbar
     },
     methods: {
-        updateLiveData: function() {
-            this.$store.dispatch('getLiveData')
+        updateConfig: function() {
+            this.$store.dispatch('getConfig')
+        },
+        updateLiveData2: function() {
+            this.$store.dispatch('getLiveData2')
         }
     },
     mounted() {
         if (this.$store.state.login.username === '') {
 
         }
-        // setInterval(this.updateLiveData, 1000)
+        this.updateConfig()
+        setInterval(this.updateConfig, 10000)
+        setInterval(this.updateLiveData2, 2000)
     }
 }
 </script>
@@ -42,6 +48,9 @@ html, body {
     /* max-width: 100%; */
     /* overflow: hidden; */
     min-height: 100%;
+}
+body {
+    padding-top: 60px;
 }
 
 #app {

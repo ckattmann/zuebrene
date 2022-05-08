@@ -7,9 +7,11 @@ div#topbar
             img(src="../assets/bss-logo.svg")
         div#title Zübrene Monitoring
 
-        router-link.topline-button(to="/map") Map
-        router-link.topline-button(to="/devices") Sites
+        router-link.topline-button(to="/livedata") Live
+        //- router-link.topline-button(to="/map") Map
+        //- router-link.topline-button(to="/devices") Sites
         router-link.topline-button(to="/data") Data
+        //- router-link.topline-button(to="/config") Config
         //- router-link.topline-button(v-if='this.$store.state.user.admin', to="/admindashboard") Admin
 
     div.topbar-side

@@ -2,10 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import store from './store'
 
+import Login from './views/Login.vue'
+
+import Livedata from './views/Livedata.vue'
 import Map from './views/Map.vue'
 import Devices from './views/Devices.vue'
 import Data from './views/Data.vue'
-import Login from './views/Login.vue'
+import Config from './views/Config.vue'
 
 Vue.use(Router);
 
@@ -22,6 +25,10 @@ let router = new Router({
             component: Login
         },
         {
+            path: '/livedata',
+            component: Livedata
+        },
+        {
             path: '/map',
             component: Map
         },
@@ -32,6 +39,10 @@ let router = new Router({
         {
             path: '/data',
             component: Data
+        },
+        {
+            path: '/config',
+            component: Config
         }
     ]
 })

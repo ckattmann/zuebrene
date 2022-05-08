@@ -18,8 +18,15 @@
                         td.data-name PD Value W
                         td.data-value(:class="{alert : site.pd_value > 10}") {{ Math.round(site.pd_value*10)/10 }} pC 
                     tr
-                        td.data-name Temperature
+                        td.data-name Temperature 1
                         td.data-value {{ Math.round(site.temperature*10)/10 }} °C
+                        td.spacer
+                        td.data-name Temperature 2
+                        td.data-value {{ Math.round(site.temperature*9)/10 }} °C
+                        td.spacer
+                    tr
+                        td.data-name Current
+                        td.data-value {{ Math.round(site.temperature*6)/10 }} A
                         td.spacer
 
 </template>
@@ -35,12 +42,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 #container {
-    padding-top: 60px;
+    /* padding-top: 60px; */
     width: 100%;
-    min-height: calc(100vh - 60px);
+    /* min-height: calc(100vh - 60px); */
     background-color: whitesmoke;
 }
 .device-card {
@@ -88,6 +95,7 @@ td.data-name {
 td.data-value {
     padding-top: 0;
     padding-bottom: 0;
+    padding-right: 2px;
     width: 70px;
     text-align: right;
     background-color: whitesmoke;

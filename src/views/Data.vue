@@ -1,17 +1,20 @@
 <template lang='pug'>
 
 #container
-    Plot
+    //- Plot
+    PlotGroup
 
 </template>
 
 <script>
+import PlotGroup from '@/components/PlotGroup.vue';
 import Plot from '@/components/Plot.vue';
 
 export default {
     name: 'Data',
     components: {
-        Plot
+        Plot,
+        PlotGroup
     },
     data() {
         return {}
@@ -23,12 +26,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 #container {
-    padding-top: 60px;
     width: 100%;
-    min-height: calc(100vh - 60px);
     background-color: whitesmoke;
 }
 
